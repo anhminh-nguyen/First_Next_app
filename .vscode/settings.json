@@ -24,5 +24,27 @@
     "[javascriptreact]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "typescript.tsdk": "node_modules/typescript/lib"
+    "typescript.tsdk": "node_modules/typescript/lib",
+    "files.exclude": {
+        "**/.next": true,
+        "**/.hg": true,
+        "**/.DS_Store": true,
+        "**/.vscode":true,
+        "**/.next:true":true,
+        "**/node_modules":true,
+        "**/AGENTS.md":true,
+        "**/CLAUDE.md":true,
+        "**/next-env.d.ts":true,
+        "**/.prettierrc":true,
+        "**/.prettierignore":true,
+        "**/eslint.config.mjs": true,
+        "**/README.md": true,
+        "**/tsconfig.json": true,
+        "**/postcss.config.mjs": true,
+        "**/next.config.ts": true,
+        "**/.gitignore": true,
+        "**/package-lock.json": true,
+        "**/package.json": true,
+        "**/components.json": true,
+    }
 }

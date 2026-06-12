@@ -1,6 +1,10 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
 import "./globals.css";
+import { ThemeProvider } from "next-themes";
+import { cn } from "@/lib/utils";
+import Navbar from "@/components/navigation/navbar";
+
 
 const inter = localFont({
   src:"./font/Inter.ttf",
@@ -32,12 +36,18 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.className} ${space.variable} h-full antialiased`}
+      className={cn("h-full", "antialiased", inter.className, space.variable)}
+      suppressHydrationWarning
     >
-      <body className="min-h-full flex flex-col">
+      <body className={` ${inter.className} ${space.variable} min-h-full flex flex-col`}>
+        
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
+          <Navbar />
+          {children}
+        </ThemeProvider>
         
         
-        {children}</body>
+        </body>
     </html>
   );
 }
