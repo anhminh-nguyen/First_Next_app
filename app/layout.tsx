@@ -4,6 +4,10 @@ import "./globals.css";
 import { ThemeProvider } from "next-themes";
 import { cn } from "@/lib/utils";
 import { Toaster } from "sonner";
+import { SessionProvider } from "next-auth/react";
+import { auth } from "@/auth";
+
+
 
 
 const inter = localFont({
@@ -28,28 +32,34 @@ export const metadata: Metadata = {
   }
 };
 
-export default function RootLayout({
-  children
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default async function RootLayout({children}: {children: React.ReactNode}) {
+
+  const sessionProvider = await auth();
+
   return (
+
+    
     <html
       lang="en"
       className={cn("h-full", "antialiased", inter.className, space.variable)}
       suppressHydrationWarning
     >
+      <SessionProvider session={sessionProvider} >
       <body className={` ${inter.className} ${space.variable} min-h-full  flex flex-col`}>
-         
+        
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-      
-            {children}
     
+            {children}
+      
         </ThemeProvider>
         <Toaster />
+        
         </body>
+    </SessionProvider>
+      
 
         
     </html>
   );
 }
+

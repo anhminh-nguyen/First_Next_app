@@ -3,13 +3,18 @@
 import { toast } from "sonner";
 import { Button } from "../ui/button";
 import Image from "next/image";
+import { signIn } from "next-auth/react";
+import ROUTES from "@/constant/route";
 
 const SocialAuthForm = () => {
   const buttonClass =
     "background-dark400_light900 body-medium text-dark200_light800 min-h-12 flex-1  rounded-2 px-4 py-3.5";
+
   const handleSignIn = async (provider: "github" | "google") => {
     try {
-        throw new Error("Not implemeted");
+        await signIn(provider,{
+          callbackUrl: ROUTES.HOME,
+        })
     } catch (error) {
       console.log("Error Sign in");
       toast("Sign in Failed", {
@@ -20,7 +25,7 @@ const SocialAuthForm = () => {
 
   return (
     <div className="mt-10 flex flex-wrap gap-2.5">
-      <Button className={buttonClass} onClick={() => handleSignIn('github')} >
+      <Button className={buttonClass} onClick={() => handleSignIn("github")} >
         <Image
           src="/icons/github.svg"
           width={20}
