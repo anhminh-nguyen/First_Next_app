@@ -44,7 +44,7 @@
         "**/next.config.ts": true,
         "**/.gitignore": true,
         "**/package-lock.json": true,
-        "**/package.json": true,
+   //     "**/package.json": true,
         "**/components.json": true,
     }
 }

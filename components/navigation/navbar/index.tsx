@@ -14,14 +14,14 @@ const Navbar = () => {
         />
         
         <p className="font-space-grotesk h2-bold text-dark-100 dark:text-light-900 max-sm:hidden" >
-            Dev <span className="text-primary-500 ">Flow</span></p>
+            Dev<span className="text-primary-500 ">Flow</span></p>
         </Link>
 
         <p>Global Search</p>
 
         <div className="flex-between gap-5" >
             <Theme />
-            
+
         </div>
 
     </nav>
