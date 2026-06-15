@@ -5,7 +5,7 @@ import MobileNav from "./MobileNav";
 
 const Navbar = () => {
   return (
-    <nav className="flex-between background-light900_dark200 fixed z-50 w-full p-6 dark:shadow-none sm:px-12 shadow-light-300" >
+    <nav className="flex-between background-light900_dark200 fixed z-40 w-full p-6 dark:shadow-none sm:px-12 shadow-light-300" >
         <Link href='/' className="flex items-center gap-1" >
         <Image
             src="/images/site-logo.svg"

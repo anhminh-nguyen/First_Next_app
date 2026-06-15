@@ -10,6 +10,7 @@ import { auth } from "@/auth";
 
 
 
+
 const inter = localFont({
   src:"./font/Inter.ttf",
   variable: "--font-inter",
@@ -48,7 +49,7 @@ export default async function RootLayout({children}: {children: React.ReactNode}
       <body className={` ${inter.className} ${space.variable} min-h-full  flex flex-col`}>
         
         <ThemeProvider attribute="class" defaultTheme="system" enableSystem disableTransitionOnChange>
-    
+            
             {children}
       
         </ThemeProvider>
