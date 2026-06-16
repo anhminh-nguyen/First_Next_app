@@ -9,7 +9,7 @@ const Home = () => {
 
   return (
     <>
-      
+      <h1 className="h1-bold">Welcome to my Web</h1>
     </>
   )
 }

@@ -7,7 +7,7 @@ import NavLinks from "./NavLinks";
 const LeftNavbar = () => {
   return (
     <>
-      <div className="fixed z-50 min-h-screen w-[266px] overflow-y-auto background-light900_dark200 max-lg:w-[80px] max-lg:mt-20 max-sm:hidden  ">
+      <div className="custom-scrollbar sticky top:0 left:0 min-h-screen w-[266px] overflow-y-auto background-light900_dark200 max-lg:w-[80px] max-lg:mt-20 max-sm:hidden border-r shadow-light-300 dark:shadow-none   ">
         <div className="flex-between flex min-h-screen flex-col w-full max-lg:flex-start ">
 
           <div className="flex flex-col w-full px-3 ">
