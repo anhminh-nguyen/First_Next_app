@@ -7,8 +7,8 @@ import NavLinks from "./NavLinks";
 const LeftNavbar = () => {
   return (
     <>
-      <div className="custom-scrollbar sticky top:0 left:0 min-h-screen w-[266px] overflow-y-auto background-light900_dark200 max-lg:w-[80px] max-lg:mt-20 max-sm:hidden border-r shadow-light-300 dark:shadow-none   ">
-        <div className="flex-between flex min-h-screen flex-col w-full max-lg:flex-start ">
+      <div className="custom-scrollbar sticky top-0 left-0 h-screen w-[266px] background-light900_dark200 max-lg:w-[80px] max-lg:pt-20 max-sm:hidden border-r shadow-light-300 dark:shadow-none   ">
+        <div className="flex-between flex min-h-screen flex-col w-full max-lg:flex-start overflow-y-auto  ">
 
           <div className="flex flex-col w-full px-3 ">
             <Link href="/" className="flex items-center gap-1 py-6 max-lg:hidden">
@@ -26,7 +26,7 @@ const LeftNavbar = () => {
           </div>
 
 
-          <div className="flex px-2 flex-col  space-y-1.5 w-full  ">
+          <div className="flex px-2 flex-col space-y-1.5 w-full  ">
             <Link href={ROUTES.SIGN_IN} className="flex justify-center" >
                 <Image
                 src="/icons/sign-up.svg"

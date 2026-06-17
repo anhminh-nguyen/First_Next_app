@@ -41,7 +41,7 @@
         "**/README.md": true,
         "**/tsconfig.json": true,
         "**/postcss.config.mjs": true,
-        "**/next.config.ts": true,
+    //    "**/next.config.ts": true,
         "**/.gitignore": true,
         "**/package-lock.json": true,
         "**/package.json": true,

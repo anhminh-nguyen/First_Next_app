@@ -1,3 +1,5 @@
+import QuestionCards from "@/components/cards/QuestionCards";
+import HomeFilter from "@/components/filters/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constant/route";
@@ -11,9 +13,9 @@ const questions = [
       description: "I want to learn React too",
       tags: [
         { _id: "1", name: "React" },
-        { _id: "2", name: "JavaScript" },
+        { _id: "2", name: "React" },
       ],
-      author: { _id: "1", name: "Ánh Minh" },
+      author: { _id: "1", name: "Ánh Minh", image:"https://st2.depositphotos.com/41960954/42058/i/450/depositphotos_420585092-stock-photo-beautiful-woman-portrait-digital-illustration.jpg"},
       upvote:10,
       answer: 5,
       views:100,
@@ -24,10 +26,10 @@ const questions = [
       title: "How to connect javascript?",
       description: "I want to learn React too",
       tags: [
-        { _id: "1", name: "React" },
+        { _id: "1", name: "JavaScript" },
         { _id: "2", name: "JavaScript" },
       ],
-      author: { _id: "1", name: "Ánh Minh" },
+      author: { _id: "1", name: "Ánh Minh", image:"https://st2.depositphotos.com/41960954/42058/i/450/depositphotos_420585092-stock-photo-beautiful-woman-portrait-digital-illustration.jpg"},
       upvote:10,
       answer: 5,
       views:100,
@@ -43,10 +45,18 @@ interface SearchParams {
 
 const Home = async ({searchParams}: SearchParams) => {
   
-  const {query=""} = await searchParams;
+  const {query="",filter=""} = await searchParams;
+  const normalizedQuery = query.toLowerCase();
+  const normalizedFilter = filter.toLowerCase().trim();
 
-  const filterQuestions = questions.filter((question)=>
-  question.title.toLowerCase().includes(query?.toLowerCase()))
+  const filterQuestions = questions.filter((question) => {
+    const matchesQuery = question.title.toLowerCase().includes(normalizedQuery);
+    const matchesFilter =
+      normalizedFilter === "" ||
+      question.tags.some((tag) => tag.name.toLowerCase() === normalizedFilter);
+
+    return matchesQuery && matchesFilter;
+  });
 
   return (
     <>
@@ -60,10 +70,13 @@ const Home = async ({searchParams}: SearchParams) => {
         <LocalSearch route="/" imgSearch="/icons/search.svg" placeholder="Search questions..." otherClass="flex-1" />
       </section>
   
+      <HomeFilter />
 
+      
       <div className="mt-10 flex w-full flex-col gap-6">
         {filterQuestions.map((data)=>
-          <h1 key={data._id} >{data.title}</h1>
+          <QuestionCards key={data._id} question={data} />
+ 
         )}
       </div>
     </>

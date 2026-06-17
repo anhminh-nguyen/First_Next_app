@@ -9,7 +9,8 @@ interface Props {
     _id:string,
     name:string,
     questions?:number,
-    showcount?:boolean
+    showcount?:boolean,
+    compact?:boolean
 };
 
 
