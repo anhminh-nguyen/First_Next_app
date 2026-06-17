@@ -35,3 +35,26 @@ const TagCards = ({_id,name,questions, showcount}:Props) => {
   )
 }
 export default TagCards
+
+
+// Home Page ( design Homepage )
+// Ask a question ( design page )
+// backend ( cung cấp thêm kiến thức - backend là gì - làm gì )
+// Error & Log handler ( kiến thức try-catch dành cho connection )
+// API Route ( apply state management & chuyển route giữa các page, user handler request  )
+// authentification II ( thêm details về auth, xử lý auth tại lần đầu chỉ lấy thông tin )
+// server action ( handle bussiness logic )
+// authen III ( more complex -> email, password authen )
+// questions ( questions page )
+// Homepage DevOverFlow 
+// Tags page 
+// Questions detail ( xử lý questions )
+// answer submission 
+// AI integrations ( API của AI )
+// Voting action ( business logic )
+// Community page 
+// Collection page 
+// Filter & pagination ( chỉnh pagination effect)
+// Top result ( business logic )
+// Profile page 
+// Manage questions and answer ( business logic )

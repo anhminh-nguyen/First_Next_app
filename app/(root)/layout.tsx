@@ -11,7 +11,7 @@ const RootLayout = ({ children }: { children: ReactNode }) => {
       <div className="flex">
         <LeftNavbar />
 
-        <section className="flex min-h-screen flex-1 flex-col px-16 py-26 pt-36 max-lg:px-14 max-md:pb-16 max-sm:px-3">
+        <section className="flex min-h-screen w-full flex-1 flex-col px-16 py-26 pt-36 max-lg:px-14 max-md:pb-16 max-sm:px-3">
           <div className="w-full">{children}</div>
         </section>
 
