@@ -52,6 +52,17 @@
 
 }
 
+/* .dark .mdxeditor {
+  background-color: #19253f !important;
+  color: white !important;
+  border: 1px solid #2d3a57;
+  border-radius: 12px;
+}
+
+.dark .mdxeditor * {
+  color: white !important;
+} */
+
 /*
   The default border color has changed to `currentcolor` in Tailwind CSS v4,
   so we've added these compatibility styles to make sure everything still

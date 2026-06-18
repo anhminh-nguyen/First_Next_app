@@ -6,8 +6,20 @@ import { useForm } from "react-hook-form";
 import { Form, FormControl, FormDescription, FormField, FormItem, FormLabel, FormMessage } from "../ui/form";
 import { Input } from "../ui/input";
 import { Button } from "../ui/button";
+import { useRef } from "react";
+import { MDXEditorMethods } from "@mdxeditor/editor";
+import dynamic from "next/dynamic";
+
+  const Editor = dynamic(() => import('@/components/editor'), {
+  // Make sure we turn SSR off
+  ssr: false
+});
+
 
 const Question = () => {
+    const editorRef = useRef<MDXEditorMethods>(null);
+
+
   const form = useForm({
     resolver: zodResolver(AskQuestionSchema),
     defaultValues: {
@@ -28,12 +40,12 @@ const Question = () => {
           render={({ field }) => (
             <FormItem className="flex w-full flex-col gap-0.5">
 
-              <FormLabel className="paragraph-semibold text-dark400_light800">
+              <FormLabel className="paragraph-bold text-dark400_light800">
                 Question Title <span className="text-primary-500">*</span>
               </FormLabel>
 
               <FormControl>
-                <Input className="paragraph-regular background-light900_dark300 light-border-2 text-dark300_light700 no-focus min-h-[56px] border" />
+                <Input className="paragraph-regular background-light900_dark300 light-border-2 text-dark300_light700 no-focus min-h-[56px] border" {...field}/>
               </FormControl>
               <FormDescription className="body-regular text-light-500" >
                 Be specific and imagine you are asking a question to another person.
@@ -46,15 +58,15 @@ const Question = () => {
 
           <FormField
           control={form.control}
-          name="title"
+          name="content"
           render={({ field }) => (
             <FormItem className="flex w-full flex-col gap-0.5">
 
-              <FormLabel className="paragraph-semibold text-dark400_light800">
+              <FormLabel className="paragraph-bold text-dark400_light800">
                 Detailed explanation of Your Problem <span className="text-primary-500">*</span>
               </FormLabel>
 
-              <FormControl>Editor</FormControl>
+              <FormControl><Editor editorRef={editorRef} value={field.value} fieldChange={field.onChange} /></FormControl>
               <FormDescription className="body-regular text-light-500" >
                 Introduce the problem and expand on what you've put in the title.
               </FormDescription>
@@ -71,7 +83,7 @@ const Question = () => {
           render={({ field }) => (
             <FormItem className="flex w-full flex-col gap-3">
 
-              <FormLabel className="paragraph-semibold text-dark400_light800">
+              <FormLabel className="paragraph-bold text-dark400_light800">
                 Tags <span className="text-primary-500">*</span>
               </FormLabel>
 
@@ -92,10 +104,10 @@ const Question = () => {
           )}
         />
 
-        <div className="mt-16 flex justify-end" ></div>
+        <div className="mt-16 flex justify-end" >
           <Button type="submit" className="primary-gradient !text-light-900 w-fit" >
             Ask a Question
-          </Button>
+          </Button></div>
       </form>
     </Form>
   );
