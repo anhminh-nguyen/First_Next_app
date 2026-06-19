@@ -68,8 +68,7 @@ if (compact){
 export default TagCards
 
 
-// Home Page ( design Homepage )
-// Ask a question ( design page )
+
 // backend ( cung cấp thêm kiến thức - backend là gì - làm gì )
 // Error & Log handler ( kiến thức try-catch dành cho connection )
 // API Route ( apply state management & chuyển route giữa các page, user handler request  )

@@ -11,3 +11,7 @@ const AskAQuestion = () => {
   )
 }
 export default AskAQuestion
+
+
+// username mongodb: nguyenleanhminh1204_db_user
+// password: CQ3ltEO877V7DEu5
