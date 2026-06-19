@@ -3,6 +3,7 @@ import {Badge} from "@/components/ui/badge"
 
 import Link from "next/link"
 import { getDeviconClassName } from "@/lib/utils"
+import Image from "next/image"
 
 
 interface Props {
@@ -10,30 +11,59 @@ interface Props {
     name:string,
     questions?:number,
     showcount?:boolean,
-    compact?:boolean
+    compact?:boolean,
+    remove?:boolean,
+    isButton?:boolean,
+    handleRemove?:() => void 
 };
 
 
 
 
-const TagCards = ({_id,name,questions, showcount}:Props) => {
-    const iconClass =getDeviconClassName(name);
+export const TagCards = ({_id,name,questions, showcount, compact, remove, isButton, handleRemove}:Props) => {
+    const handleClick = (e:React.MouseEvent) =>{
+        e.preventDefault();
+    }
+    
+    const iconClass = getDeviconClassName(name);
+    const Content = (
+        <>
+            <Badge className="subtitle-medium background-light800_dark300 text-light400_light500 rounded-md border-none px-4 py-2 uppercase flex flex-row uppercase" >
+                <div className="flex-centen space-x-2">
+                    <i className={`${iconClass} text-sm `} ></i>
+                    <span>{name}</span>
+                </div>
+                {remove && (
+                    <Image 
+                    src="/icons/close.svg"
+                    width={12}
+                    height={12}
+                    alt="close icon"
+                    className="cursor-pointer object-contain dark:invert invert-0"
+                    onClick={handleRemove}
+                    />
+                )}
+            </Badge>
+            {showcount && (
+                <p className="small-medium text-dark500_light700" >{questions}</p>
+            )}
+        </>
+    );
 
-  return (
+if (compact){
+    return isButton? (
+        <button onClick={handleClick} className="flex justify-between gap-2">
+            {Content}
+        </button>
+    ):
+ (
     <>
     <Link href={ROUTES.TAGS(_id)} className="flex gap-2 justify-between">
-    <Badge className="subtitle-medium background-light800_dark300 text-light400_light500 rounded-md border-none px-4 py-2 uppercase" >
-        <div className="flex-centen space-x-2">
-            <i className={`${iconClass} text-sm `} ></i>
-            <span>{name}</span>
-        </div>
-    </Badge>
-    {showcount && (
-        <p className="small-medium text-dark500_light700" >{questions}</p>
-    )}
+        {Content}
     </Link>
     </>
   )
+}
 }
 export default TagCards
 
