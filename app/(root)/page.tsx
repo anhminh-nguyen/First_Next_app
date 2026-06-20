@@ -3,6 +3,10 @@ import HomeFilter from "@/components/filters/HomeFilter";
 import LocalSearch from "@/components/search/LocalSearch";
 import { Button } from "@/components/ui/button";
 import ROUTES from "@/constant/route";
+import error from "@/lib/handler/error";
+import handleError from "@/lib/handler/error";
+import { NotFoundError } from "@/lib/http-errors";
+import dbConnect from "@/lib/mongoose";
 import Link from "next/link";
 
 
@@ -38,13 +42,13 @@ const questions = [
   ];
 
 
-
 interface SearchParams {
   searchParams: Promise<{[key:string]:string}>,
 };
 
 const Home = async ({searchParams}: SearchParams) => {
-  
+
+
   const {query="",filter=""} = await searchParams;
   const normalizedQuery = query.toLowerCase();
   const normalizedFilter = filter.toLowerCase().trim();
