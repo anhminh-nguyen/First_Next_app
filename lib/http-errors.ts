@@ -1,4 +1,4 @@
-export class RequestError extends Error{
+export class RequestError extends Error{ 
     statusCode: number;
     errors?: Record<string, string[]>;
     constructor(statusCode:number, message:string,errors?: Record<string, string[]> ){
@@ -22,7 +22,7 @@ export class ValidationError extends RequestError {
   static formatFieldErrors(errors: Record<string, string[]>): string {
     const formattedMessages = Object.entries(errors).map(
       ([field, messages]) => {
-        const fieldName = field.charAt(0).toUpperCase() + field.slice(1);
+        const fieldName = field.charAt(0).toUpperCase() + field.slice(1); 
 
         if (messages[0] === "Required") {
           return `${fieldName} is required`;
